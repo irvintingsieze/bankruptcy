@@ -12,6 +12,7 @@ def index():
         print(NPTA,TLTA,WCTA)
         model = load_model("bankruptcy_model")
         pred = model.predict([[float(NPTA),float(TLTA),float(WCTA)]])
+        pred = "res:" + str(pred)
         return (render_template("index.html",result=pred))
     else:
         return (render_template("index.html",result="2"))
